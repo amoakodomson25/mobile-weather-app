@@ -9,6 +9,7 @@ import {
   Poppins_600SemiBold,
   Poppins_300Light,
 } from "@expo-google-fonts/poppins";
+import { StatusBar } from "expo-status-bar";
 
 import axios from "axios";
 
@@ -162,6 +163,7 @@ export default function App() {
   return (
     <View style={[styles.container]}>
       <LinearGradient colors={bgGradient} style={StyleSheet.absoluteFill} />
+      <StatusBar style="light" translucent backgroundColor="transparent" />
       {/* Overlay next gradient with fade */}
       {nextGradient && (
         <Animated.View
