@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { StatusBar } from "expo-status-bar";
 import * as Location from "expo-location";
 import { StyleSheet, Text, View, ScrollView ,Animated } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
@@ -10,7 +9,7 @@ import {
   Poppins_600SemiBold,
   Poppins_300Light,
 } from "@expo-google-fonts/poppins";
-import AppLoading from "expo-app-loading";
+
 import axios from "axios";
 
 const API_KEY = "3daa2a0e87c83595d50ccce6b4e7a9ba";
@@ -126,7 +125,8 @@ export default function App() {
     if (weather) {
       const hour = new Date().getHours();
       const isNight = hour < 6 || hour >= 18;
-      const newGradient = getBackgroundGradient(weather.weather[0].main, isNight);
+      const newGradient = getBackgroundGradient(weather.weather[0].main, isNight) as [string, string];
+
 
       if (newGradient.join() !== bgGradient.join()) {
         setNextGradient(newGradient);
@@ -155,7 +155,6 @@ export default function App() {
     }
   }, [nextGradient]);
   if (!fontsLoaded) {
-    return <AppLoading />;
   }
 
 
@@ -243,7 +242,7 @@ const styles = StyleSheet.create({
   tempText: {
     fontSize: 200,
     color: "#fff",
-    marginBottom: 20,
+    marginBottom: 10,
     fontFamily: "Poppins_300Light",
   },
   tempStatus: {
@@ -253,11 +252,11 @@ const styles = StyleSheet.create({
     fontFamily: "Poppins_300Light",
   },
   forecastContainer: {
-    marginTop: 60,
-    paddingHorizontal: 10,
+    marginTop: 20,
+    paddingHorizontal: 2,
   },
   forecastBlock: {
-    width: 110,
+    width: 140,
     height: 160,
     marginHorizontal: 4,
     borderRadius: 24,
