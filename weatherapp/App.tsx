@@ -221,13 +221,13 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#1a1a2e", // solid dark background
+    backgroundColor: "#1a1a2e", 
     alignItems: "center",
     justifyContent: "flex-start",
   },
   overlay: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: "rgba(0,0,0,0.3)", // subtle overlay
+    backgroundColor: "rgba(0,0,0,0.3)",
   },
   topContainer: {
     marginTop: 40,
